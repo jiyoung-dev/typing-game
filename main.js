@@ -27,7 +27,7 @@ function run(){
     return;
   }
   score = 0;
-  isPlaying = true;
+  isPlaying = true; 
   time = GAME_TIME;
   wordInput.focus();
   scoreDisplay.innerText = 0;
@@ -40,7 +40,7 @@ function checkStatus(){
   if(!isPlaying && time === 0){
     buttonChange("Game Start")
     clearInterval(checkInterval)
-    alert(score)
+    alert(score + "점 입니다!")
   }
 }
 
