@@ -1,6 +1,6 @@
 // 변수 초기화 
 const GAME_TIME = 10;
-let score = 0;
+let score;
 let isPlaying = false;
 let timeInterval;
 let checkInterval;
@@ -26,11 +26,12 @@ function run(){
   if(isPlaying){
     return;
   }
+  score = 0;
   isPlaying = true;
   time = GAME_TIME;
   wordInput.focus();
   scoreDisplay.innerText = 0;
-  timeInterval = setInterval(countDown, 1000);
+  timeInterval = setInterval(countDown, 10000);
   checkInterval = setInterval(checkStatus, 50); // 상태 체크 
   buttonChange('ing...')
 }
@@ -72,6 +73,7 @@ function checkMatch(){
   if(wordInput.value.toLowerCase() === wordDisplay.innerText.toLowerCase()){
     wordInput.value = "";
     if(!isPlaying){ // 게임실행중이 아닌경우 
+      score = 0;
       return;
     }
     score++;
